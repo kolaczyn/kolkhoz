@@ -34,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 enum WorkState { beforeWork, atWork, afterWork, noWork }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool lol = false;
   String currentDayOfTheWeek() {
     initializeDateFormatting();
     final DateFormat dateFormat = DateFormat.EEEE('pl_PL');
@@ -140,6 +141,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Text("Do wejścia do kołchozu pozostało ${calcTimeUntilWork()}"),
             if (workState == WorkState.afterWork)
               const Text("Już nie jesteś w kołchozie :)"),
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    lol = !lol;
+                  });
+                },
+                child: const Text("Odśwież"))
           ],
         ),
       ),
